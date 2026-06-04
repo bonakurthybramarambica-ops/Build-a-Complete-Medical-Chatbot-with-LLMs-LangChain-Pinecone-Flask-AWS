@@ -1,17 +1,15 @@
+import os
+import requests
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
-import os
-import requests
 
 # -----------------------
 # LOAD ENV
 # -----------------------
 load_dotenv()
-
 app = Flask(__name__)
 CORS(app)
-
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 # -----------------------
@@ -85,7 +83,6 @@ def get_response():
                     return jsonify({"answer": answer})
 
                 print("Groq Error:", response.text)
-
             except Exception as e:
                 print("Groq Exception:", str(e))
 
@@ -95,9 +92,9 @@ def get_response():
         text = user_input.lower()
         answer = MEDICAL_RESPONSES["default"]
 
-        for keyword, response in MEDICAL_RESPONSES.items():
+        for keyword, response_text in MEDICAL_RESPONSES.items():
             if keyword != "default" and keyword in text:
-                answer = response
+                answer = response_text
                 break
 
         return jsonify({"answer": answer})
@@ -112,7 +109,7 @@ def get_response():
 # HEALTH CHECK (RENDER)
 # -----------------------
 @app.route("/health", methods=["GET"])
-def health():
+def health_check():
     return jsonify({
         "status": "ok",
         "service": "medical-chatbot",
