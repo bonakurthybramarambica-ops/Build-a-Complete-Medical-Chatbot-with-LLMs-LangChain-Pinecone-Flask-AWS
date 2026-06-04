@@ -6,14 +6,18 @@ gunicorn==21.2.0
 
 groq==0.37.1
 
+# LangChain stable 2024-compatible stack
 langchain==0.3.26
 langchain-core==0.3.66
 langchain-community==0.3.26
 langchain-groq==0.3.4
-langchain-pinecone
 
-pinecone
+# IMPORTANT FIX (avoid broken latest)
+langchain-pinecone==0.0.1
+
+pinecone-client==5.0.1
 
 openai==1.109.1
 pydantic==2.13.4
-typing-extensions>=4.8.0
+
+numpy==1.26.4
