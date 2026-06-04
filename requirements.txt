@@ -13,5 +13,7 @@ langchain-groq==0.3.4
 langchain-pinecone
 
 pinecone
+
 openai==1.109.1
 pydantic==2.13.4
+typing-extensions>=4.8.0
