@@ -10,8 +10,8 @@ langchain==0.3.26
 langchain-core==0.3.66
 langchain-community==0.3.26
 langchain-groq==0.3.4
-langchain-pinecone==0.2.13
+langchain-pinecone
 
-pinecone==7.3.0
+pinecone
 openai==1.109.1
 pydantic==2.13.4
